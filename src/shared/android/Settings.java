@@ -1,4 +1,4 @@
-package us.jsy.android.shared;
+package shared.android;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package us.jsy.android.shared;
+package shared.android;
 
 import java.util.UUID;
 
