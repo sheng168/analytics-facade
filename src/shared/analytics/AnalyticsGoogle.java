@@ -8,7 +8,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
  * Simple analytics facade.
  * 
  */
-public class AnalyticsGoogle implements AnalyticsService {
+public class AnalyticsGoogle extends AnalyticsService {
 	static AnalyticsService me;
 	public static GoogleAnalyticsTracker tracker = GoogleAnalyticsTracker
 			.getInstance();

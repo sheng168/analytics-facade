@@ -2,14 +2,13 @@ package shared.analytics;
 
 import android.content.Context;
 
-import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.localytics.android.LocalyticsSession;
 
 /**
  * Simple analytics facade.
  * 
  */
-public class AnalyticsLocalytics implements AnalyticsService {
+public class AnalyticsLocalytics extends AnalyticsService {
 	static AnalyticsService me;
 
 	private static LocalyticsSession localyticsSession;

@@ -16,14 +16,26 @@ public class Analytics {
 	 * @param name
 	 */
 	public static void track(String name) {
+		log.info("track: {}", name);
 		for (AnalyticsService s : list) {
 			s.track(name);
 		}
-		log.trace("track {}", name);
 	}
+	
+	public static void time(long millis, String... name) {
+		log.info("time: {}, {}", millis, name[0]);
+		for (AnalyticsService s : list) {
+			s.time(millis, name);
+		}
+	}
+
 
 	public static void track(Object obj) {
 		track(obj.getClass().getSimpleName());
+	}
+
+	public static void track(Object obj, Object sub) {
+		track(obj.getClass().getSimpleName() + "/" + sub);
 	}
 
 	static void add(AnalyticsService s) {

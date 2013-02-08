@@ -9,7 +9,7 @@ import com.flurry.android.FlurryAgent;
  * Simple analytics facade.
  * 
  */
-public class AnalyticsFlurry implements AnalyticsService {
+public class AnalyticsFlurry extends AnalyticsService {
 	static AnalyticsService me;
 	
 	/* (non-Javadoc)
@@ -19,6 +19,11 @@ public class AnalyticsFlurry implements AnalyticsService {
 	@Override
 	public void track(String name) {
 		FlurryAgent.logEvent(name);
+	}
+
+	@Override
+	public void time(long millis, String... names) {	
+		super.time(millis, names);
 	}
 	
 	// custom init
