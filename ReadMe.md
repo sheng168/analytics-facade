@@ -1,5 +1,7 @@
 # analytics-facade
 
+[![Build Status](https://buildhive.cloudbees.com/job/sheng168/job/analytics-facade/badge/icon)](https://buildhive.cloudbees.com/job/sheng168/job/analytics-facade/)
+
 analytics-facade allows you to send analytics data from your Android app to multiple services using a single API.
 The following services are supported:
 
