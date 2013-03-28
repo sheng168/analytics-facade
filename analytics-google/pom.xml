@@ -3,6 +3,13 @@
   <groupId>analytics-google</groupId>
   <artifactId>analytics-google</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+      	<parent>
+<groupId>us.jsy.analytics-facade</groupId>
+<artifactId>parent</artifactId>
+<version>0.5</version>
+<relativePath>../pom.xml</relativePath>
+</parent>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -25,10 +32,20 @@
     </plugins>
   </build>
   <dependencies>
+		<dependency>
+			<groupId>com.google</groupId>
+			<artifactId>analytics</artifactId>
+			<version>1.0</version>
+		</dependency>
   	<dependency>
-  		<groupId>analytics-facade</groupId>
+  		<groupId>us.jsy.analytics-facade</groupId>
   		<artifactId>analytics-facade</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>4.0.1.2</version>
+		</dependency>
   </dependencies>
 </project>

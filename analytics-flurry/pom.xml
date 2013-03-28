@@ -1,8 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>analytics-flurry</groupId>
+  <groupId>us.jsy.analytics-facade</groupId>
   <artifactId>analytics-flurry</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+    	<parent>
+<groupId>us.jsy.analytics-facade</groupId>
+<artifactId>parent</artifactId>
+<version>0.5</version>
+<relativePath>../pom.xml</relativePath>
+</parent>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -26,9 +34,21 @@
   </build>
   <dependencies>
   	<dependency>
-  		<groupId>analytics-facade</groupId>
+  		<groupId>us.jsy.analytics-facade</groupId>
   		<artifactId>analytics-facade</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>4.0.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.flurry</groupId>
+			<artifactId>FlurryAgent</artifactId>
+			<version>3.1.0</version>
+		</dependency>
   </dependencies>
+  
+
 </project>

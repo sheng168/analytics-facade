@@ -2,28 +2,38 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+<!--
+-->
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
-
+	
 	<groupId>us.jsy.analytics-facade</groupId>
 	<artifactId>parent</artifactId>
 	<packaging>pom</packaging>
-	<version>4.2.0</version>
+	<version>0.5</version>
 
 	<name>analytics-facade (Parent)</name>
-	<description>Android library for implementing the action bar design pattern using the backported sources of Ice Cream Sandwich.</description>
+	<description>simple generic API for analytic service.</description>
 	<url>http://actionbarsherlock.com</url>
 	<inceptionYear>2011</inceptionYear>
 
 	<modules>
 		<module>analytics-facade</module>
+		<module>analytics-google</module>
 		<module>analytics-googleV2</module>
+		<module>analytics-flurry</module>
 		<module>analytics-localytics</module>
 	</modules>
+
+	<repositories>
+		<repository>
+			<id>cloudbees</id>
+			<url>http://repository-jsy.forge.cloudbees.com/release/</url>
+		</repository>
+	</repositories>
 
 	<scm>
 		<url>https://github.com/JakeWharton/ActionBarSherlock/</url>
@@ -80,26 +90,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>android</artifactId>
-				<version>${android.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>support-v4</artifactId>
-				<version>${android-support.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.nineoldandroids</groupId>
-				<artifactId>library</artifactId>
-				<version>2.4.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.rtyley</groupId>
-				<artifactId>roboguice-sherlock</artifactId>
-				<version>1.4</version>
-			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -186,5 +176,34 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+      <extensions>
+         <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-webdav</artifactId>
+            <version>1.0-beta-2</version>
+         </extension>
+      </extensions>
 	</build>
+	
+  <distributionManagement>
+      <downloadUrl>http://repository-jsy.forge.cloudbees.com/release/</downloadUrl>
+
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>repo1</id>
+      <name>Repository</name>
+      <url>dav:https://repository-jsy.forge.cloudbees.com/release/</url>
+      <layout>default</layout>
+    </repository>
+    <!--
+    <snapshotRepository>
+      <uniqueVersion>true</uniqueVersion>
+      <id>propSnap</id>
+      <name>Propellors Snapshots</name>
+      <url>https://repository-jsy.forge.cloudbees.com/release/</url>
+      <layout>legacy</layout>
+    </snapshotRepository>-->
+  </distributionManagement>
+
 </project>
