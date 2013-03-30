@@ -19,6 +19,10 @@ I was inspired by slf4j(logging facade).
 Using the facade, I was able to enable all four analytics services in my app while developing and testing
 and compare the reports that are generated with each service before picking one to leave in place for production.
 
+Recently Google released V2 beta with features specifically for mobile apps. 
+However they broke backward compatibility to do it. 
+Luckily for me, I was able to quickly create one class to support V2.
+I didn't have to go into all of the classes that I instrumented since the analytics facade was the only thing that was peppered throughout my code.
 
 ```java
 // setup to send data to both flurry and google in Application.onCreate
