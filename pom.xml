@@ -13,7 +13,7 @@
 	<groupId>us.jsy.analytics-facade</groupId>
 	<artifactId>parent</artifactId>
 	<packaging>pom</packaging>
-	<version>${version}</version>
+	<version>0.5</version>
 
 	<name>analytics-facade (Parent)</name>
 	<description>simple generic API for analytic service.</description>
@@ -29,7 +29,6 @@
 	</modules>
 
 	<properties>
-	    <version>0.5</version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
