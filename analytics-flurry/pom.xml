@@ -1,54 +1,54 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>us.jsy.analytics-facade</groupId>
-  <artifactId>analytics-flurry</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-    	<parent>
-<groupId>us.jsy.analytics-facade</groupId>
-<artifactId>parent</artifactId>
-<version>0.5</version>
-<relativePath>../pom.xml</relativePath>
-</parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>analytics-flurry</artifactId>
 
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-  	<dependency>
-  		<groupId>us.jsy.analytics-facade</groupId>
-  		<artifactId>analytics-facade</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
+	<parent>
+		<groupId>us.jsy.analytics-facade</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.5</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>us.jsy.analytics-facade</groupId>
+			<artifactId>analytics-facade</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
-			<version>4.0.1.2</version>
+			<version>${android.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.flurry</groupId>
 			<artifactId>FlurryAgent</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-  </dependencies>
-  
+	</dependencies>
 
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source />
+					<target />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>

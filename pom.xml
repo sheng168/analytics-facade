@@ -3,21 +3,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 <!--
--->
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
+-->
 	
 	<groupId>us.jsy.analytics-facade</groupId>
 	<artifactId>parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.5</version>
+	<version>${version}</version>
 
 	<name>analytics-facade (Parent)</name>
 	<description>simple generic API for analytic service.</description>
-	<url>http://actionbarsherlock.com</url>
+	<url>http://jsy.us</url>
 	<inceptionYear>2011</inceptionYear>
 
 	<modules>
@@ -27,6 +27,24 @@
 		<module>analytics-flurry</module>
 		<module>analytics-localytics</module>
 	</modules>
+
+	<properties>
+	    <version>0.5</version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<java.version>1.6</java.version>
+		<android.version>4.0.1.2</android.version>
+		<android.platform>14</android.platform>
+		<android-support.version>r7</android-support.version>
+
+		<android-maven.version>3.3.2</android-maven.version>
+		<junit.version>4.10</junit.version>
+
+		<github.downloads.repositoryOwner>JakeWharton</github.downloads.repositoryOwner>
+		<github.downloads.repositoryName>ActionBarSherlock</github.downloads.repositoryName>
+	</properties>
+
 
 	<repositories>
 		<repository>
@@ -72,22 +90,10 @@
 		<url>https://github.com/JakeWharton/ActionBarSherlock/issues</url>
 	</issueManagement>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<dependencies>
 
-		<java.version>1.6</java.version>
-		<android.version>4.0.1.2</android.version>
-		<android.platform>14</android.platform>
-		<android-support.version>r7</android-support.version>
-
-		<android-maven.version>3.3.2</android-maven.version>
-		<junit.version>4.10</junit.version>
-
-		<github.downloads.repositoryOwner>JakeWharton</github.downloads.repositoryOwner>
-		<github.downloads.repositoryName>ActionBarSherlock</github.downloads.repositoryName>
-	</properties>
-
+	</dependencies>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -95,6 +101,17 @@
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>us.jsy.analytics-facade</groupId>
+				<artifactId>analytics-facade</artifactId>
+				<version>0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android</artifactId>
+				<version>4.0.1.2</version>
+			</dependency>
+					
 		</dependencies>
 	</dependencyManagement>
 

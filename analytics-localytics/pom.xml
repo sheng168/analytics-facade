@@ -1,15 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>us.jsy.analytics-facade</groupId>
+	
 	<artifactId>analytics-localytics</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-  	<parent>
-<groupId>us.jsy.analytics-facade</groupId>
-<artifactId>parent</artifactId>
-<version>4.2.0</version>
-<relativePath>../pom.xml</relativePath>
-</parent>
+	<parent>
+		<groupId>us.jsy.analytics-facade</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.5</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>us.jsy.analytics-facade</groupId>
+			<artifactId>analytics-facade</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>${android.version}</version>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
@@ -31,16 +44,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>us.jsy.analytics-facade</groupId>
-			<artifactId>analytics-facade</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<version>4.0.1.2</version>
-		</dependency>
-	</dependencies>
 </project>
