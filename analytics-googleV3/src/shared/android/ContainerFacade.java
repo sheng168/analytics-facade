@@ -4,6 +4,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import android.widget.TextView;
+
 import com.google.tagmanager.Container;
 
 public class ContainerFacade {
@@ -49,8 +51,25 @@ public class ContainerFacade {
 	public static String get(String name) {
 		String s = ContainerHolder.getContainer().getString(name);
 		if (s.length() > 0)
-			return s;
+			return s + '!';
 		else
 			return name + "*";
+	}
+
+	public static void translate(TextView... textViews) {
+		for (TextView textView : textViews) {
+			textView.setText(get(textView.getText().toString()));
+		}
+	}
+
+	/**
+	 * 
+	 * @param textView or Buttons and other subclasses
+	 */
+	public static void translate(TextView textView) {
+		if (textView == null)
+			return;
+		
+		textView.setText(get(textView.getText().toString()));
 	}
 }
