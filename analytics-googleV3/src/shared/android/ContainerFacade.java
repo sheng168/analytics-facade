@@ -4,6 +4,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.tagmanager.Container;
@@ -70,6 +73,28 @@ public class ContainerFacade {
 		if (textView == null)
 			return;
 		
-		textView.setText(get(textView.getText().toString()));
+		final String string = textView.getText().toString();
+		if (string.length() > 0 && string.endsWith("")) {
+			textView.setText(get(string.trim()));
+		}
+	}
+
+	public static void translate(View view) {
+		if (view instanceof ViewGroup) {
+			ViewGroup group = (ViewGroup)view;
+			for (int i = 0; i < group.getChildCount(); i++) {
+				View child = group.getChildAt(i);
+				
+				translate(child);
+			}
+		} else if (view instanceof TextView) {
+			translate((TextView)view);
+		}
+	}
+
+	public static void translate(Activity act) {
+        act.setTitle(ContainerFacade.get(act.getTitle().toString()));
+        //HierarchicalViewIdViewer.debugViewIds(act.findViewById(android.R.id.content), "views");
+        // no easy way to get content view
 	}
 }
