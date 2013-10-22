@@ -53,10 +53,11 @@ public class ContainerFacade {
 
 	public static String get(String name) {
 		String s = ContainerHolder.getContainer().getString(name);
+		final boolean debug = false; //BuildConfig.DEBUG;
 		if (s.length() > 0)
-			return s + '!';
+			return debug?s + '!':s;
 		else
-			return name + "*";
+			return debug?name + "*":name;
 	}
 
 	public static void translate(TextView... textViews) {
