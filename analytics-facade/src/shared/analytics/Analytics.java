@@ -41,4 +41,12 @@ public class Analytics {
 	static void add(AnalyticsService s) {
 		list.add(s);
 	}
+
+	public static void event(String name) {
+		log.info("event: {}", name);
+		for (AnalyticsService s : list) {
+			s.event(name);
+		}
+
+	}
 }
