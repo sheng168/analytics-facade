@@ -1,5 +1,7 @@
 package shared.analytics;
 
+import java.util.Map;
+
 import android.content.Context;
 
 import com.google.analytics.tracking.android.Fields;
@@ -29,23 +31,30 @@ public class AnalyticsGoogleTracker extends AnalyticsService {
 	 */
 	@Override
 	public void track(String name) {
-		tracker.send(MapBuilder.createAppView().set(Fields.SCREEN_NAME, name)
-				.build());
+		tracker.set(Fields.SCREEN_NAME, name);
+		
+		Map<String, String> param = MapBuilder.createAppView()
+				.build();
+		tracker.send(param);
+		
+		GAServiceManager.getInstance().dispatchLocalHits();
 	}
 	@Override
 	public void event(String name) {
-		tracker.send(MapBuilder.createEvent(name, null, null, null)
-				.build());
+		Map<String, String> build = MapBuilder.createEvent(name, "action", "label", 1L)
+				.build();
+		tracker.send(build);
 	}
 
 	@Override
 	public void time(long millis, String... names) {
 		String category = names[0];
-		String name = names.length >= 2 ? names[1] : null;
-		String label = names.length >= 3 ? names[2] : null;
+		String name = names.length >= 2 ? names[1] : "name";
+		String label = names.length >= 3 ? names[2] : "label";
 
-		tracker.send(MapBuilder.createTiming(category, millis, name, label)
-				.build());
+		Map<String, String> build = MapBuilder.createTiming(category, millis, name, label)
+				.build();
+		tracker.send(build);
 	}
 
 	// custom init
